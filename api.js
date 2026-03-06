@@ -3,7 +3,7 @@
 //   Barcha HTML sahifalarga shu faylni qo'shing
 // ═══════════════════════════════════════════
 
-const API_URL = "https://yukchi-production.up.railway.app";
+const API_URL = "yukchifinalbackend-production.up.railway.app";
 
 // ── Token ──────────────────────────────────
 function getToken()    { return localStorage.getItem("token"); }
