@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuk-olish - TruckWay</title>
+    <link rel="stylesheet" href="yukolish.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="logistik.png" alt="TruckWay Logo" width="180">
+        </div>
+        <h1>Yukchi.uz Kompaniyasi</h1>
+        <div>
+            <select>
+                <option>O'zbek</option>
+                <option>Русский</option>
+                <option>English</option>
+            </select>
+            <a href="#" class="auth-link">Kirish</a>
+            <button onclick="window.location.href='profile.html'" class="profile-btn">
+    Profile
+        </div>
+    </header>
+
+    <nav>
+        <a href="truck.html">Bosh sahifa</a>
+        <a href="yukolish.html">Yuk-olish</a>
+        <a href="yukberish.html">Yuk-berish</a>
+        <a href="filiallar.html">Filiallar</a>
+        <a href="aloqa.html">Aloqa</a>
+        <a href="xarita.html">Xarita</a>
+    </nav>
+
+        <main>
+            <h2>Yuklarni Tanlash</h2>
+            <div class="content-grid">
+                <div class="cards-wrap">
+                    <div class="cards-container">
+                        <!-- Card 1 -->
+                        <article class="card">
+                            <img src="qwer/olma.jpg" alt="Toshkent - Samarqand">
+                            <div class="card-body">
+                                <h3 class="card-title">Toshkent → Samarqand</h3>
+                                <div class="card-meta">
+                                    <span class="meta-item">📏 310 km</span>
+                                    <span class="meta-item">⏱ 5 soat</span>
+                                    <span class="meta-item">📦 Oziq-ovqat</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="price">5,000,000 so'm</div>
+                                    <div class="actions"><button class="btn select-btn" onclick="location.href='buyurtmalar.html?manzil=Toshkent%20%E2%9E%92%20Samarqand&masofa=310km&vaqt=5soat&yukTuri=Oziq-ovqat&narx=550000'">Tanlash</button></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card">
+                            <img src="qwer/stroymat.jpg" alt="Andijon - Buxoro">
+                            <div class="card-body">
+                                <h3 class="card-title">Andijon → Buxoro</h3>
+                                <div class="card-meta">
+                                    <span class="meta-item">📏 620 km</span>
+                                    <span class="meta-item">⏱ 10 soat</span>
+                                    <span class="meta-item">📦 Qurilish materiali</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="price">9,200,000 so'm</div>
+                                    <div class="actions"><button class="btn select-btn" onclick="location.href='buyurtmalar.html?manzil=Andijon%20%E2%9E%92%20Buxoro&masofa=620km&vaqt=10soat&yukTuri=Qurilish%20materiali&narx=1200000'">Tanlash</button></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card">
+                            <img src="qwer/maishiy tex.jpg" alt="Farg'ona - Qarshi">
+                            <div class="card-body">
+                                <h3 class="card-title">Farg'ona → Qarshi</h3>
+                                <div class="card-meta">
+                                    <span class="meta-item">📏 470 km</span>
+                                    <span class="meta-item">⏱ 7 soat</span>
+                                    <span class="meta-item">📦 Maishiy texnika</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="price">4,900,000 so'm</div>
+                                    <div class="actions"><button class="btn select-btn" onclick="location.href='buyurtmalar.html?manzil=Farg%27ona%20%E2%9E%92%20Qarshi&masofa=470km&vaqt=7soat&yukTuri=Maishiy%20texnika&narx=890000'">Tanlash</button></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="card">
+                            <img src="qwer/taxta.jfif" alt="Urganch - Nukus">
+                            <div class="card-body">
+                                <h3 class="card-title">Urganch → Nukus</h3>
+                                <div class="card-meta">
+                                    <span class="meta-item">📏 360 km</span>
+                                    <span class="meta-item">⏱ 3 soat</span>
+                                    <span class="meta-item">📦 Taxta materiali</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="price">7,000,000 so'm</div>
+                                    <div class="actions"><button class="btn select-btn" onclick="location.href='buyurtmalar.html?manzil=Urganch%20%E2%9E%92%20Nukus&masofa=360km&vaqt=3soat&yukTuri=Taxta%20materiali&narx=1000000'">Tanlash</button></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="card">
+                            <img src="qwer/ozuqa.jpg" alt="Farg'ona - Toshkent">
+                            <div class="card-body">
+                                <h3 class="card-title">Farg'ona → Toshkent</h3>
+                                <div class="card-meta">
+                                    <span class="meta-item">📏 400 km</span>
+                                    <span class="meta-item">⏱ 5 soat</span>
+                                    <span class="meta-item">📦 Oziq-ovqat</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="price">5,000,000 so'm</div>
+                                    <div class="actions"><button class="btn select-btn" onclick="location.href='buyurtmalar.html?manzil=Farg%27ona%20%E2%9E%92%20Toshkent&masofa=400km&vaqt=5soat&yukTuri=Oziq-ovqat&narx=5000000'">Tanlash</button></div>
+                                </div>
+                            </div>
+                        </article>
+
+
+
+                         <!-- Card 6 -->
+                        <article class="card">
+                            <img src="qwer/fermer.jfif" alt="Qoraqalpog'iston - Toshkent">
+                            <div class="card-body">
+                                <h3 class="card-title">Qoraqalpog'iston → Toshkent</h3>
+                                <div class="card-meta">
+                                    <span class="meta-item">📏 1000 km</span>
+                                    <span class="meta-item">⏱ 19 soat</span>
+                                    <span class="meta-item">📦 Fermer hojaligi</span>
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="price">12,000,000 so'm</div>
+                                    <div class="actions"><button class="btn select-btn" onclick="location.href='buyurtmalar.html?manzil=Qoraqalpog%27iston%20%E2%9E%92%20Toshkent&masofa=1000km&vaqt=19soat&yukTuri=Fermer%20hojaligi&narx=12000000'">Tanlash</button></div>
+                                </div>
+                            </div>
+                        </article>
+
+
+
+
+
+                        <article class="card">
+    <img src="qwer/taxta2.jpg" alt="Urganch - Samarqand">
+    <div class="card-body">
+        <h3 class="card-title">Urganch → Samarqand</h3>
+        <div class="card-meta">
+            <span class="meta-item">📏 560 km</span>
+            <span class="meta-item">⏱ 9-10 soat</span>
+            <span class="meta-item">📦 Taxta materiali</span>
+        </div>
+        <div class="card-bottom">
+            <div class="price">9,000,000 so'm</div>
+            <div class="actions">
+                <button class="btn select-btn"
+                    onclick="location.href='buyurtmalar.html?manzil=Urganch%E2%86%92Samarqand&masofa=560km&vaqt=9-10soat&yukTuri=Taxta%20materiali&narx=9000000'">
+                    Tanlash
+                </button>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+                       
+
+
+
+                        
+
+                        <!-- Card 7 -->
+                       <article class="card">
+    <img src="qwer/fermer2.jpg" alt="Qoraqalpog'iston - Andijon">
+    <div class="card-body">
+        <h3 class="card-title">Qoraqalpog'iston → Andijon</h3>
+
+        <div class="card-meta">
+            <span class="meta-item">📏 1052 km</span>
+            <span class="meta-item">⏱ 18–19 soat</span>
+            <span class="meta-item">📦 Fermer xo‘jaligi</span>
+        </div>
+
+        <div class="card-bottom">
+            <div class="price">15,850,000 so‘m</div>
+
+            <div class="actions">
+                <button class="btn select-btn"
+                  onclick="location.href='buyurtmalar.html?manzil=Qoraqalpog%27iston%20%E2%86%92%20Andijon&masofa=1052km&vaqt=18-19soat&narx=15850000'">
+                    Tanlash
+                </button>
+            </div>
+        </div>
+    </div>
+</article>
+
+                    </div>
+                </div>
+
+               
+            </div>
+        </main>
+
+        </div>
+    </main>
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <div class="footer-top">
+                    
+
+                    <div class="footer-columns">
+                        <div class="col">
+                             <h5>truckway</h5>
+                            <ul>
+                                <li><a href="truck.html">Bosh sahifa</a></li>
+                                <li><a href="yukolish.html">Xizmatlar</a></li>
+                                
+                           
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <h5>Support</h5>
+                            <ul>
+                                <li><a href="aloqa.html">Yordam mavzulari</a></li>
+                                
+                                <li><a href="#">Support Center</a></li>
+                                
+                            </ul>
+                        </div>
+
+                        
+
+                        <div class="col">
+                            <h5>Blog</h5>
+                            <ul>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Yangiliklar</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-brand-right">
+                        <div class="brand-box">
+                            
+                             <div class="col">
+    
+    <p class="brand-desc">Bizning ijtimoiy tarmoqlarimiz orqali kompaniyamiz bilan bog‘lanishingiz mumkin.</p>
+</div><br>
+
+                            <div class="brand-contacts">
+                                <a href="mailto:info@yukchi.uz" class="icon-link" aria-label="Email">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13a2.5 2.5 0 0 0 2.5-2.5v-7" stroke="#cfe8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                                <a href="tel:+998901234567" class="icon-link" aria-label="Phone">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.12 1.05.38 2.07.76 3.03a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.96.38 1.98.64 3.03.76A2 2 0 0 1 22 16.92z" stroke="#cfe8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                                <a href="https://t.me/yourchannel" class="icon-link" target="_blank" rel="noopener" aria-label="Telegram">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L2 12l4 1 1 4 15-15-5 13 4-13z" stroke="#cfe8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+
+                                
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </footer>
+
+       <script>
+    
+
+
+    
+
+document.querySelector(".profile-btn").addEventListener("click", () => {
+    const loggedIn = localStorage.getItem("loggedIn");
+    if (!loggedIn) {
+        alert("Profilga o‘tish uchun avval tizimga kiring!");
+        window.location.href = "kirish1.html";
+    } else {
+        window.location.href = "profile.html";
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const authLink = document.querySelector('.auth-link');
+    if (!authLink) return;
+
+    const loggedIn = localStorage.getItem('loggedIn') === 'true';
+
+    function setSignupVisibility(show) {
+        document.querySelectorAll('.signup-cta').forEach(el => {
+            el.style.display = show ? '' : 'none';
+        });
+    }
+
+    if (loggedIn) {
+        
+        authLink.textContent = 'Chiqish';
+        authLink.href = '#';
+
+        authLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('username');
+            window.location.href = 'truck.html';
+        });
+
+        setSignupVisibility(false);
+
+    } else {
+        
+        authLink.textContent = 'Kirish';
+        authLink.href = 'kirish1.html';
+        setSignupVisibility(true);
+    }
+});
+
+        function requireLogin() {
+            if (!localStorage.getItem("loggedIn")) {
+                alert("Buyurtma tanlash uchun tizimga kiring!");
+                window.location.href = "kirish1.html";
+                return false;
+            }
+            return true;
+        }
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".select-btn");
+
+        buttons.forEach(btn => {
+            const originalClick = btn.getAttribute("onclick"); // Eski linkni saqlaymiz
+            btn.removeAttribute("onclick");
+
+            btn.addEventListener("click", () => {
+                if (!requireLogin()) return; // Kirmagan bo‘lsa kirish sahifasiga yuboradi
+
+                // KIRGAN bo'lsa — eski linkni bajaradi
+                eval(originalClick);
+            });
+        });
+    });
+
+
+    
+
+    
+</script>
+
+    </body>
+    </html>

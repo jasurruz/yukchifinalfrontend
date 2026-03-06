@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yukchi.uz - Kirish </title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Yukchi.uz</h1>
+
+        <!-- Ro‘yxatdan o‘tish -->
+        <div class="form-container" id="signup-container">
+            <h2>Ro'yxatdan o'tish</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-username" placeholder="Foydalanuvchi nomi" required>
+                <input type="password" id="signup-password" placeholder="Parol" required>
+
+                <label class="type-label">Profil turi</label>
+
+                <!-- ----- TANLASH DIZAYNI ----- -->
+                <div class="type-select">
+                    <button type="button" class="type-btn active" data-type="user">👤 Foydalanuvchi</button>
+                    <button type="button" class="type-btn" data-type="driver">🚗 Haydovchi</button>
+                </div>
+
+                <!-- Tanlangan qiymat backendga ketadi -->
+                <input type="hidden" id="regProfileType" value="user">
+
+                <button type="submit">Ro'yxatdan o'tish</button>
+            </form>
+
+            <p>Allaqachon hisobingiz bormi? <span id="show-login">Kirish</span></p>
+        </div>
+
+        <!-- Kirish -->
+        <div class="form-container" id="login-container" style="display: none;">
+            <h2>Kirish</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Foydalanuvchi nomi" required>
+                <input type="password" id="login-password" placeholder="Parol" required>
+                <button type="submit">Kirish</button>
+            </form>
+            <p>Hisobingiz yo'qmi? <span id="show-signup">Ro'yxatdan o'tish</span></p>
+        </div>
+    </div>
+
+<script src="api.js"></script>
+<script src="krish1.js"></script>
+
+<script>
+    // === Profil turini bosilganda almashtirish ===
+    const typeButtons = document.querySelectorAll(".type-btn");
+    const hiddenInput = document.getElementById("regProfileType");
+
+    typeButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelector(".type-btn.active")?.classList.remove("active");
+            btn.classList.add("active");
+            hiddenInput.value = btn.dataset.type; 
+        });
+    });
+</script>
+
+</body>
+</html>

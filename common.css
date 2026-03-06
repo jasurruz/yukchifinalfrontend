@@ -1,0 +1,228 @@
+/* ===== Common site styles (ALL PAGES) ===== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Sticky footer system ===== */
+html, body{
+  height:100%;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+
+  /* navbar fixed bo‘lgani uchun */
+  padding-top:70px;
+}
+
+/* sahifa kontenti bo‘sh joyni egallaydi (footer pastga tushadi) */
+main{
+  flex:1;
+}
+
+/* ===== NAVBAR (Bootstrap) ===== */
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:99999;
+  background: linear-gradient(90deg, #0a0a23, #0b3472);
+  padding:12px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.brand-logo{
+  height:40px;
+  width:auto;
+}
+
+.topbar .nav-link{
+  color: rgba(255,255,255,0.92) !important;
+  font-weight:600;
+  padding:10px 12px !important;
+  border-radius:12px;
+  transition: background .15s ease, transform .1s ease, color .15s ease;
+}
+
+.topbar .nav-link:hover{
+  background: rgba(255,255,255,0.08);
+  color:#fff !important;
+  transform: translateY(-1px);
+}
+
+.topbar .nav-link.active{
+  background: rgba(255,255,255,0.12);
+  color:#fff !important;
+}
+
+.topbar .auth-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.06);
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,0.14);
+  text-decoration:none;
+  font-weight:700;
+  transition: background .15s ease, color .15s ease, transform .08s ease;
+}
+
+.topbar .auth-link:hover{
+  background:#fff;
+  color:#0b3472 !important;
+  transform: translateY(-2px);
+}
+
+.topbar .profile-btn{
+  border-radius:999px !important;
+  padding:8px 14px !important;
+  font-weight:700 !important;
+  border:1px solid rgba(255,255,255,0.12) !important;
+  background: rgba(77,184,255,0.22) !important;
+  color:#fff !important;
+  transition: transform .08s ease, filter .15s ease;
+}
+
+.topbar .profile-btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.topbar .navbar-toggler{
+  border-color: rgba(255,255,255,0.22);
+}
+
+.topbar .navbar-toggler-icon{
+  filter: invert(1);
+}
+
+/* Til tanlash */
+.lang-select{
+  min-width:110px;
+  border-radius:999px !important;
+  border:1px solid rgba(255,255,255,0.14) !important;
+  background: rgba(255,255,255,0.06) !important;
+  color:#fff !important;
+  padding-left:14px !important;
+  padding-right:30px !important;
+}
+
+.lang-select option{
+  color:#000;
+}
+
+@media (max-width:768px){
+  .brand-logo{ height:34px; }
+  .topbar .navbar-nav{ padding-top:10px; }
+  .topbar .nav-link{ padding:10px 12px !important; }
+  body{ padding-top:72px; } /* mobilga mos */
+}
+
+/* ===== FOOTER ===== */
+.site-footer{
+  background:#041b33;
+  color:#cfe8ff;
+  padding:26px 30px;
+  margin-top:40px; /* ozgina masofa, xohlasangiz 0 qiling */
+}
+
+.site-footer .footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.site-footer .footer-top{
+  display:grid;
+  grid-template-columns: 1fr 520px;
+  gap:28px;
+  align-items:start;
+}
+
+/* UL nuqtalarni olib tashlash */
+.site-footer ul{
+  list-style:none !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.footer-columns{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:22px;
+}
+
+.footer-columns .col h5{
+  color:#dff3ff;
+  margin-bottom:10px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.footer-columns li{ margin-bottom:8px; }
+
+.footer-columns a{
+  color:#a9d5ff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.footer-columns a:hover{
+  color:#fff;
+  text-decoration:underline;
+}
+
+.footer-brand-right .brand-box{
+  text-align:left;
+  padding-left:24px;
+  border-left:1px solid rgba(255,255,255,0.06);
+}
+
+.brand-desc{
+  font-size:13px;
+  line-height:1.5;
+  color:#cfe8ff;
+  margin:0 0 10px;
+}
+
+.brand-contacts{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.icon-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.06);
+  text-decoration:none;
+}
+
+/* responsive footer */
+@media (max-width:980px){
+  .site-footer .footer-top{ grid-template-columns:1fr; }
+  .footer-columns{ grid-template-columns: repeat(2,1fr); }
+  .footer-brand-right .brand-box{
+    padding-left:0;
+    border-left:none;
+    margin-top:18px;
+  }
+}
+
+@media (max-width:520px){
+  .footer-columns{ grid-template-columns:1fr; }
+}

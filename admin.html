@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin | Buyurtmalar</title>
+</head>
+<body>
+  <h1>Buyurtmalar</h1>
+  <table border="1" id="ordersTable">
+    <tr>
+      <th>ID</th>
+      <th>Ism</th>
+      <th>Telefon</th>
+      <th>Qayerdan</th>
+      <th>Qayerga</th>
+      <th>Yuk</th>
+      <th>Status</th>
+    </tr>
+  </table>
+
+<script>
+fetch("postgresql://postgres:gentra737590@db.thlasmikahqmsugltmfc.supabase.co:5432/postgres")
+  .then(res => res.json())
+  .then(data => {
+    const table = document.getElementById("ordersTable");
+    data.forEach(o => {
+      table.innerHTML += `
+        <tr>
+          <td>${o.id}</td>
+          <td>${o.name}</td>
+          <td>${o.phone}</td>
+          <td>${o.from_city}</td>
+          <td>${o.to_city}</td>
+          <td>${o.cargo}</td>
+          <td>${o.status}</td>
+        </tr>
+      `;
+    });
+  });
+</script>
+</body>
+</html>

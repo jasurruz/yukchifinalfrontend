@@ -1,0 +1,151 @@
+/* =========================
+   ALOQA.CSS (CLEAN)
+   Navbar + footer = common.css
+   Bu fayl faqat Aloqa page kontenti uchun
+========================= */
+body{
+  background-color:#e2e4e9;
+  color:#000000; 
+}
+
+.contact-title{
+  text-align: center;
+  font-size: 32px;
+  margin: 10px 0 26px;
+  color: #000000;
+  font-weight: 800;
+}
+
+/* main layout */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* cards container */
+.contact-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* info + form card (dark theme) */
+.contact-info,
+.contact-form{
+  flex: 1 1 320px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  color: #000000;
+}
+
+/* headings inside cards */
+.contact-info h3,
+.contact-form h3{
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  color: #000000;
+}
+
+.contact-info p{
+  margin: 0 0 12px;
+  color: rgba(0, 0, 0, 0.88);
+  line-height: 1.45;
+}
+
+/* form layout */
+.contact-form form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: #000000;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color: rgba(77,184,255,0.55);
+  box-shadow: 0 0 0 3px rgba(77,184,255,0.18);
+}
+
+/* submit button */
+.contact-form button{
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #ff7a00;
+  color: #000000;
+  transition: transform .08s ease, filter .15s ease;
+}
+
+.contact-form button:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* responsive */
+@media (max-width: 768px){
+  .contact-title{
+    font-size: 22px;
+  }
+  main{
+    padding: 28px 14px 50px;
+  }
+}
+
+
+/* MAIN kengligi (desktopda yonma-yon chiqishi uchun) */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* Yonma-yon layout (desktop) */
+.contact-container{
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;           /* ✅ DESKTOP: pastga tushmasin */
+}
+
+/* Ikkala kartaga teng joy */
+.contact-info,
+.contact-form{
+  flex: 1 1 0;                 /* ✅ teng bo‘lib bo‘linadi */
+  min-width: 420px;            /* ✅ juda kichrayib ketmasin */
+}
+
+/* ✅ Mobile: pastga tushsin */
+@media (max-width: 992px){
+  .contact-container{
+    flex-wrap: wrap;           /* mobile/tablet: pastga tushadi */
+  }
+  .contact-info,
+  .contact-form{
+    min-width: 100%;
+  }
+}

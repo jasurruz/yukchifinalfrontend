@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil – Yukchi.uz</title>
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<div class="layout">
+
+   
+    <aside class="sidebar">
+        <div class="logo">Truckway</div>
+
+        <div class="sidebar-user">
+            <img id="sideAvatar" src="trucklogo.jpg">
+            <h4 id="sideName">Foydalanuvchi</h4>
+            <p id="sideType"></p>
+        </div>
+
+        <nav class="menu">
+            <a class="active">Profil</a>
+            <a href="truck.html">Bosh sahifa</a>
+            <a>Buyurtmalar</a>
+            <a>Transportlar</a>
+            <a>Sozlamalar</a>
+        </nav>
+
+        <button id="logoutBtn" class="logout">Chiqish</button>
+    </aside>
+
+   
+    <main class="profile-content">
+
+        <div class="header">
+            <h2>Profil ma’lumotlari</h2>
+        </div>
+
+       <div class="profile-top">
+    <div class="avatar-wrapper">
+        <img id="profileImage" src="profile.jpg" class="avatar">
+        <label for="uploadPhoto" class="change-photo">Rasmni almashtirish</label>
+        <input type="file" id="uploadPhoto" accept="image/*">
+    </div>
+
+    <div class="profile-info">
+        <h3 id="profileName">Foydalanuvchi</h3>
+        <p id="profileType" class="tag"></p>
+    </div>
+</div>
+
+      <!-- USER INFO -->
+<div class="card">
+    <h3>Shaxsiy ma’lumotlar</h3>
+
+    <div class="info-grid">
+        <div><span>Username:</span> <p id="p_username"></p></div>
+        <div><span>Yosh:</span> <p id="p_age">Kiritilmagan</p></div>
+        <div><span>Tug'ilgan joy:</span> <p id="p_country">Kiritilmagan</p></div>
+        <div><span>Telefon:</span> <p id="p_phone">Kiritilmagan</p></div>
+    </div>
+
+    <button id="editUserBtn" class="btn">Tahrirlash</button>
+
+    
+    <form id="editUserForm" style="display:none; margin-top:15px;">
+        <label>Yosh:</label>
+        <input type="number" id="in_age" placeholder="Yoshingiz">
+
+        <label>Tug'ilgan joy:</label>
+        <input type="text" id="in_country" placeholder="Tug'ilgan joy">
+
+        <label>Telefon:</label>
+        <input type="text" id="in_phone" placeholder="Telefon raqam">
+
+        <button type="button" id="saveUserBtn" class="btn">Saqlash</button>
+    </form>
+</div>
+
+
+<!-- DRIVER INFO -->
+<div id="driver-section" class="card" style="display:none;">
+    <h3>Haydovchi ma’lumotlari</h3>
+
+    <div class="info-grid" id="driverView">
+        <div><span>Transport turi:</span> <p id="p_transport">Kiritilmagan</p></div>
+        <div><span>Avto raqam:</span> <p id="p_carNumber">Kiritilmagan</p></div>
+        <div><span>Guvohnoma:</span> <p id="p_license">Kiritilmagan</p></div>
+        <div><span>Reyting:</span> <p id="p_rating">5.0 ⭐</p></div>
+    </div>
+
+    
+    <div class="info-grid" id="driverEdit" style="display:none;">
+        <div><span>Transport turi:</span> 
+            <input type="text" id="edit_transport" placeholder="Transport turi">
+        </div>
+
+        <div><span>Avto raqam:</span> 
+            <input type="text" id="edit_carNumber" placeholder="Avto raqam">
+        </div>
+
+        <div><span>Guvohnoma:</span> 
+            <input type="text" id="edit_license" placeholder="Guvohnoma raqami">
+        </div>
+    </div>
+
+    <button id="editDriverBtn" class="btn">O‘zgartirish</button>
+    <button id="saveDriverBtn" class="btn" style="display:none;">Saqlash</button>
+
+    <button class="btn">Transportlar ro‘yxati</button>
+    <button class="btn">Buyurtmalar tarixi</button>
+</div>
+
+
+    </main>
+</div>
+
+
+
+
+
+<script src="profile.js"></script>
+</body>
+</html>
+
+

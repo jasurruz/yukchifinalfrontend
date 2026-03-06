@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TruckWay Kompaniyasi</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="common.css">
+
+  <link rel="stylesheet" href="truck.css" />
+</head>
+
+<body>
+<div id="navbar-mount"></div>
+  <!-- ✅ YANGI PROFESSIONAL NAVBAR -->
+  <nav class="navbar navbar-expand-lg topbar">
+    <div class="container-fluid px-4">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="truck.html">
+        <img src="logistik.png" alt="Yukchi.uz Logo" class="brand-logo" />
+      </a>
+
+      <!-- Mobile toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu + Actions -->
+      <div class="collapse navbar-collapse" id="mainNav">
+
+        <!-- Center menu -->
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="truck.html">Bosh sahifa</a></li>
+          <li class="nav-item"><a class="nav-link" href="yukolish.html" id="nav-yuk-olish">Yuk-olish</a></li>
+          <li class="nav-item"><a class="nav-link" href="yukberish.html" id="nav-yuk-berish">Yuk-berish</a></li>
+          <li class="nav-item"><a class="nav-link" href="filiallar.html">Filiallar</a></li>
+          <li class="nav-item"><a class="nav-link" href="aloqa.html">Aloqa</a></li>
+          <li class="nav-item"><a class="nav-link" href="xarita.html">Xarita</a></li>
+        </ul>
+
+        <!-- Right actions -->
+        <div class="d-flex align-items-center gap-2">
+          <select class="form-select form-select-sm lang-select" aria-label="Language select">
+            <option>O'zbek</option>
+            <option>Русский</option>
+            <option>English</option>
+          </select>
+
+          <!-- Kirish/Chiqish -->
+          <a href="index.html" class="btn btn-sm btn-outline-light auth-link">Kirish</a>
+
+          <!-- Profile -->
+          <button type="button" class="btn btn-sm btn-primary profile-btn">
+            Profile
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Yuk tashishni osonlashtiring — samarali yo'nalishlar va buyurtmalar boshqaruvi</h1>
+          <p class="sub">
+            Yukchi.uz haydovchilar va operatorlar uchun yo'nalishlarni optimallashtirish, buyurtma taqsimlash va real
+            vaqtda kuzatuv imkonini beradi.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="yukberish.html" class="btn btn-lg btn-primary">Xizmatdan foydalanish</a>
+            <button id="showYukchiBtn" type="button" class="btn btn-lg btn-outline-light ms-2">Yukchi loyihasi haqida</button>
+          </div>
+
+          <form class="email-cta signup-cta" aria-label="Signup form">
+            <input type="email" placeholder="Emailingizni kiriting" required />
+            <button type="submit" class="btn btn-secondary">Ro‘yxatdan o‘tish</button>
+          </form>
+        </div>
+
+        <div class="hero-right">
+          <img src="qwer/1122.webp" alt="Dashboard" class="hero-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features py-5">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Yo'nalishni optimallashtirish</h3>
+            <p>Tez va samarali marshrutlar yaratish — yoqilg'i va vaqtni tejash.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Buyurtma boshqaruvi</h3>
+            <p>Buyurtmalarni avtomatik taqsimlash va operatorlar uchun qulay panel.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Real vaqtda kuzatuv</h3>
+            <p>Haydovchini kuzatish, yetkazib berish holatini ko‘rish.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Xavfsiz to‘lovlar</h3>
+            <p>To‘lovlarni oson hisoblash va hisobotlar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="yukchi" class="yukchi-details" aria-live="polite">
+      <div class="container py-5">
+        <div class="row align-items-start">
+          <div class="col-lg-8">
+            <h2 class="yukchi-title">Yukchi.uz — Haydovchilar va yuk tashuvchilarga mo'ljallangan platforma</h2>
+            <p class="yukchi-lead">
+              Yukchi.uz yordamida yuklarni topish, buyurtmalarni boshqarish va daromadlarni kuzatish juda oson.
+              Platforma haydovchilar, kichik va o'rta logistika kompaniyalari uchun optimallashtirilgan.
+            </p>
+
+            <h4>Asosiy funksiyalar</h4>
+            <ul>
+              <li>Profil va litsenziya boshqaruvi — haydovchi ma'lumotlarini to'liq saqlash.</li>
+              <li>Buyurtma qabul qilish va avtomatik taqsimlash — operatorlar uchun qulay panel.</li>
+              <li>Yo'nalishlar va marshrut optimallashtirish — vaqt va yoqilg'i tejash.</li>
+              <li>Real vaqtda kuzatuv va yetkazib berish holati.</li>
+              <li>To'lovlar, hisob-kitob va daromad kuzatuvi.</li>
+            </ul>
+
+            <h4>Qanday boshlash</h4>
+            <ol>
+              <li>Ro‘yxatdan o‘ting va profilni to‘ldiring.</li>
+              <li>Yukga mos buyurtmalarni qabul qiling.</li>
+              <li>Marshrutni tasdiqlang va yetkazib bering.</li>
+            </ol>
+
+            <div class="mt-3">
+              <a href="kirish1.html" class="btn btn-primary me-2 signup-cta">Ro‘yxatdan o‘tish</a>
+              <a href="aloqa.html" class="btn btn-outline-secondary">Batafsil ma'lumot</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-columns">
+          <div class="col">
+            <h5>truckway</h5>
+            <ul>
+              <li><a href="truck.html">Bosh sahifa</a></li>
+              <li><a href="yukolish.html">Xizmatlar</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="aloqa.html">Yordam mavzulari</a></li>
+              <li><a href="#">Support Center</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h5>Blog</h5>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Yangiliklar</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-brand-right">
+          <div class="brand-box">
+            <p class="brand-desc">Bizning ijtimoiy tarmoqlarimiz orqali kompaniyamiz bilan bog‘lanishingiz mumkin.</p>
+            <div class="brand-contacts">
+              <a href="mailto:info@yukchi.uz" class="icon-link" aria-label="Email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13a2.5 2.5 0 0 0 2.5-2.5v-7"
+                    stroke="#cfe8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+
+              <a href="tel:+998901234567" class="icon-link" aria-label="Phone">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.12 1.05.38 2.07.76 3.03a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.96.38 1.98.64 3.03.76A2 2 0 0 1 22 16.92z"
+                    stroke="#cfe8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+
+              <a href="https://t.me/yourchannel" class="icon-link" target="_blank" rel="noopener" aria-label="Telegram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 2L2 12l4 1 1 4 15-15-5 13 4-13z"
+                    stroke="#cfe8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sizning js (agar kerak bo‘lsa) -->
+  <script src="krish1.js"></script>
+
+  <!-- ✅ Bootstrap JS (navbar collapse ishlashi uchun) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ Auth + Profile logika (xatosiz) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const authLink = document.querySelector(".auth-link");
+      const profileBtn = document.querySelector(".profile-btn");
+
+      const loggedIn = localStorage.getItem("loggedIn") === "true";
+
+      function setSignupVisibility(show) {
+        document.querySelectorAll(".signup-cta").forEach(el => {
+          el.style.display = show ? "" : "none";
+        });
+      }
+
+      // Profile
+      if (profileBtn) {
+        profileBtn.addEventListener("click", () => {
+          const isLogged = localStorage.getItem("loggedIn") === "true";
+          if (!isLogged) {
+            alert("Profilga o‘tish uchun avval tizimga kiring!");
+            window.location.href = "index.html";
+          } else {
+            window.location.href = "profile.html";
+          }
+        });
+      }
+
+      // Kirish/Chiqish
+      if (authLink) {
+        if (loggedIn) {
+          authLink.textContent = "Chiqish";
+          authLink.href = "#";
+          authLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.removeItem("loggedIn");
+            localStorage.removeItem("username");
+            window.location.href = "truck.html";
+          });
+
+          setSignupVisibility(false);
+        } else {
+          authLink.textContent = "Kirish";
+          authLink.href = "index.html";
+          setSignupVisibility(true);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

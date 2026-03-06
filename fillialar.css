@@ -1,0 +1,230 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-btn {
+   display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1px;
+  transition: background .15s ease, color .15s ease, transform .08s ease, box-shadow .15s ease;
+}
+.profile-btn:hover {
+     background: #ffffff;
+  color: #0b3472;
+  transform: translateY(-2px);
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a0a23;
+    padding: 10px 40px;
+    color: white;
+}
+
+header img {
+    height: 60px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+header select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+
+header .auth-link:hover {
+    background-color: #0056b3;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #1e1e2f;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4db8ff;
+}
+
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #0a0a23;
+}
+
+.filial-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filial-card {
+    background-color: #fdf7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.filial-card:hover {
+    transform: translateY(-5px);
+}
+
+.filial-card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+
+.site-footer {
+    background: #041b33;
+    color: #cfe8ff;
+    padding: 26px 30px;
+    margin-top: 291px;
+}
+
+.site-footer .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-footer .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 28px;
+    align-items: start;
+}
+
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.footer-columns .col h5 {
+    color: #dff3ff;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-columns li {
+    margin-bottom: 8px;
+}
+
+.footer-columns a {
+    color: #a9d5ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-columns a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-brand-right .brand-box {
+    background: transparent;
+    text-align: center;
+    padding-left: 24px;
+    border-left: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+
+.brand-desc {
+    font-size: 13px !important;
+}
+
+.brand-contacts {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    color: #cfe8ff;
+    text-decoration: none;
+}
+
+.icon-link svg {
+    display: block;
+}
+
+.footer-bottom {
+    margin-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 18px;
+    text-align: center;
+    color: #9fc7ff;
+}
+
+
+  /* Auth link / login button styling */
+header .auth-link {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 12px;
+  transition: background .15s ease, color .15s ease, transform .08s ease, box-shadow .15s ease;
+  box-shadow: 0 2px 8px rgba(2,6,23,0.15);
+}
