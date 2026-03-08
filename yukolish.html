@@ -279,89 +279,66 @@
                 
             </div>
         </footer>
+<script src="api.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-       <script>
-    
+  // Nav yangilash
+  updateNav();
 
-
-    
-
-document.querySelector(".profile-btn").addEventListener("click", () => {
-    const loggedIn = localStorage.getItem("loggedIn");
-    if (!loggedIn) {
-        alert("Profilga o‘tish uchun avval tizimga kiring!");
-        window.location.href = "kirish1.html";
-    } else {
+  // Profile tugmasi
+  const profileBtn = document.querySelector(".profile-btn");
+  if (profileBtn) {
+    profileBtn.addEventListener("click", () => {
+      if (!isLoggedIn()) {
+        showMessage("Profilga kirish uchun avval tizimga kiring!", "error");
+        setTimeout(() => { window.location.href = "index.html"; }, 1200);
+      } else {
         window.location.href = "profile.html";
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const authLink = document.querySelector('.auth-link');
-    if (!authLink) return;
-
-    const loggedIn = localStorage.getItem('loggedIn') === 'true';
-
-    function setSignupVisibility(show) {
-        document.querySelectorAll('.signup-cta').forEach(el => {
-            el.style.display = show ? '' : 'none';
-        });
-    }
-
-    if (loggedIn) {
-        
-        authLink.textContent = 'Chiqish';
-        authLink.href = '#';
-
-        authLink.addEventListener('click', function (e) {
-            e.preventDefault();
-            localStorage.removeItem('loggedIn');
-            localStorage.removeItem('username');
-            window.location.href = 'truck.html';
-        });
-
-        setSignupVisibility(false);
-
-    } else {
-        
-        authLink.textContent = 'Kirish';
-        authLink.href = 'kirish1.html';
-        setSignupVisibility(true);
-    }
-});
-
-        function requireLogin() {
-            if (!localStorage.getItem("loggedIn")) {
-                alert("Buyurtma tanlash uchun tizimga kiring!");
-                window.location.href = "kirish1.html";
-                return false;
-            }
-            return true;
-        }
-
-    
-    document.addEventListener("DOMContentLoaded", () => {
-        const buttons = document.querySelectorAll(".select-btn");
-
-        buttons.forEach(btn => {
-            const originalClick = btn.getAttribute("onclick"); // Eski linkni saqlaymiz
-            btn.removeAttribute("onclick");
-
-            btn.addEventListener("click", () => {
-                if (!requireLogin()) return; // Kirmagan bo‘lsa kirish sahifasiga yuboradi
-
-                // KIRGAN bo'lsa — eski linkni bajaradi
-                eval(originalClick);
-            });
-        });
+      }
     });
+  }
 
+  // Tanlash tugmalari — login tekshirish
+  function requireLogin() {
+    if (!isLoggedIn()) {
+      showMessage("Buyurtma tanlash uchun tizimga kiring!", "error");
+      setTimeout(() => { window.location.href = "index.html"; }, 1200);
+      return false;
+    }
+    return true;
+  }
 
-    
+  const buttons = document.querySelectorAll(".select-btn");
+  buttons.forEach(btn => {
+    const originalClick = btn.getAttribute("onclick");
+    btn.removeAttribute("onclick");
+    btn.addEventListener("click", async () => {
+      if (!requireLogin()) return;
 
-    
+      // Buyurtmani backendga ham saqlash
+      const urlMatch = originalClick ? originalClick.match(/manzil=([^&']+)/) : null;
+      const narxMatch = originalClick ? originalClick.match(/narx=([^&']+)/) : null;
+      const yukMatch  = originalClick ? originalClick.match(/yukTuri=([^&']+)/) : null;
+
+      if (urlMatch) {
+        try {
+          await Orders.create({
+            name:      getUsername() || "Mehmon",
+            phone:     "-",
+            from_city: decodeURIComponent(urlMatch[1].split('%20%E2%9E%92%20')[0] || urlMatch[1]),
+            to_city:   decodeURIComponent(urlMatch[1].split('%20%E2%9E%92%20')[1] || "-"),
+            cargo:     yukMatch ? decodeURIComponent(yukMatch[1]) : "Noma'lum",
+            price:     narxMatch ? narxMatch[1] : null
+          });
+        } catch(e) { console.warn("Buyurtma saqlashda xato:", e); }
+      }
+
+      // Buyurtmalar sahifasiga o'tish
+      if (originalClick) eval(originalClick);
+    });
+  });
+});
 </script>
-
-    </body>
-    </html>
+</body>
+</html>
