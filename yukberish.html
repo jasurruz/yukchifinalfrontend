@@ -100,56 +100,34 @@
     
     
 
-<script src="api.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form.form-grid');
-  if (!form) return;
-  const btn = form.querySelector('button[type=submit]');
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const yukNomi  = document.getElementById('yukNomi').value.trim();
-    const yukTuri  = document.getElementById('yukTuri').value.trim();
-    const joManzil = document.getElementById('joatuvchiManzil').value.trim();
-    const qManzil  = document.getElementById('qabulManzil').value.trim();
-    const ogirlik  = document.getElementById('ogirlik').value.trim();
-    const telefon  = document.getElementById('telefon').value.trim();
-    const qoshimcha= document.getElementById('qoshimcha').value.trim();
-    const hajm     = document.getElementById('hajm').value.trim();
-
-    if (!yukNomi || !yukTuri || !joManzil || !qManzil || !ogirlik || !telefon) {
-      showMessage("Barcha maydonlarni to'ldiring!", "error"); return;
-    }
-
-    if (btn) { btn.disabled = true; btn.textContent = "Yuborilmoqda..."; }
-
-    try {
-      const data = await Orders.create({
-        name:         getUsername() || "Mehmon",
-        phone:        telefon,
-        from_city:    joManzil,
-        to_city:      qManzil,
-        cargo:        yukNomi + " | " + yukTuri + (hajm ? " | " + hajm + " m3" : "") + (qoshimcha ? " | " + qoshimcha : ""),
-        cargo_weight: parseFloat(ogirlik) || null
-      });
-
-      if (data.status === "ok") {
-        showMessage("Buyurtmangiz qabul qilindi!");
-        form.reset();
-      } else {
-        showMessage(data.message || "Xatolik!", "error");
-      }
-    } catch { showMessage("Server bilan aloqa yo'q!", "error"); }
-    finally { if (btn) { btn.disabled = false; btn.textContent = "Yuborish"; } }
-  });
-});
-</script>
 
 
 
     </body>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const authLink = document.querySelector('.auth-link');
+            if(!authLink) return;
+            const loggedIn = (function(){ try { return localStorage.getItem('loggedIn') === 'true'; } catch(e){ return false; } })();
+            if(loggedIn){
+                authLink.textContent = 'Chiqish';
+                authLink.href = '#';
+                const newLink = authLink.cloneNode(true);
+                authLink.parentNode.replaceChild(newLink, authLink);
+                newLink.addEventListener('click', function(e){
+                    e.preventDefault();
+                    try{ localStorage.removeItem('loggedIn'); localStorage.removeItem('username'); } catch(err){}
+                    window.location.href = 'truck.html';
+                });
+            } else {
+                authLink.textContent = 'Kirish';
+                authLink.href = 'kirish1.html';
+            }
+        });
+
+        
+    </script>
     </html>
     
     
@@ -223,3 +201,66 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             </div>
         </footer>
+<script src="api.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ── Nav yangilash ──
+  updateNav();
+
+  // ── Kirmaganlarni yo'naltirish ──
+  if (!isLoggedIn()) {
+    showMessage("Yuk berish uchun avval kiring!", "error");
+    setTimeout(() => { window.location.href = "index.html"; }, 1500);
+    return;
+  }
+
+  const form = document.querySelector('form.form-grid');
+  if (!form) return;
+  const btn = form.querySelector('button[type=submit]');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const yukNomi  = document.getElementById('yukNomi').value.trim();
+    const yukTuri  = document.getElementById('yukTuri').value.trim();
+    const joManzil = document.getElementById('joatuvchiManzil').value.trim();
+    const qManzil  = document.getElementById('qabulManzil').value.trim();
+    const ogirlik  = document.getElementById('ogirlik').value.trim();
+    const telefon  = document.getElementById('telefon').value.trim();
+    const hajm     = document.getElementById('hajm').value.trim();
+    const qoshimcha= document.getElementById('qoshimcha').value.trim();
+
+    if (!yukNomi || !yukTuri || !joManzil || !qManzil || !ogirlik || !telefon) {
+      showMessage("Barcha majburiy maydonlarni to'ldiring!", "error");
+      return;
+    }
+
+    if (btn) { btn.disabled = true; btn.textContent = "Yuborilmoqda..."; }
+
+    try {
+      const data = await Orders.create({
+        name:      getUsername() || "Mehmon",
+        phone:     telefon,
+        from_city: joManzil,
+        to_city:   qManzil,
+        cargo:     yukNomi + " | " + yukTuri + (hajm ? " | " + hajm + " m3" : "") + (qoshimcha ? " | " + qoshimcha : ""),
+        cargo_weight: parseFloat(ogirlik) || null
+      });
+
+      if (data.status === "ok") {
+        showMessage("✅ Buyurtmangiz qabul qilindi! Tez orada bog'lanamiz.");
+        form.reset();
+      } else {
+        showMessage(data.message || "Xatolik yuz berdi!", "error");
+      }
+    } catch (err) {
+      showMessage("Server bilan aloqa yo'q!", "error");
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = "Yuborish"; }
+    }
+  });
+});
+</script>
+</body>
+</html>
