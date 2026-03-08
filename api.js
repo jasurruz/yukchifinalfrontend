@@ -9,14 +9,13 @@ const API_URL = "https://yukchifinalbackend-production.up.railway.app";
 function getToken()    { return localStorage.getItem("token"); }
 function getUsername() { return localStorage.getItem("username"); }
 function getRole()     { return localStorage.getItem("profileType"); }
-function isLoggedIn()  { return !!localStorage.getItem("loggedIn"); }
+function isLoggedIn()  { return localStorage.getItem("loggedIn") === "true"; }
 
 // ── Universal fetch ────────────────────────
 async function apiFetch(path, options = {}) {
   const token = getToken();
   const headers = { "Content-Type": "application/json" };
   if (token) headers["Authorization"] = "Bearer " + token;
-
   const res  = await fetch(API_URL + path, { ...options, headers });
   const data = await res.json().catch(() => ({}));
   return data;
@@ -26,8 +25,6 @@ async function apiFetch(path, options = {}) {
 //  AUTH
 // ─────────────────────────────────────────────
 const Auth = {
-
-  // Ro'yxatdan o'tish
   async signup(username, password, profileType) {
     return apiFetch("/signup", {
       method: "POST",
@@ -35,22 +32,20 @@ const Auth = {
     });
   },
 
-  // Kirish
   async login(username, password) {
     const data = await apiFetch("/login", {
       method: "POST",
       body: JSON.stringify({ username, password })
     });
     if (data.status === "ok") {
-      localStorage.setItem("loggedIn",     "true");
-      localStorage.setItem("username",     data.username);
-      localStorage.setItem("profileType",  data.profileType);
+      localStorage.setItem("loggedIn",    "true");
+      localStorage.setItem("username",    data.username);
+      localStorage.setItem("profileType", data.profileType);
       if (data.token) localStorage.setItem("token", data.token);
     }
     return data;
   },
 
-  // Chiqish
   logout() {
     ["loggedIn","username","profileType","token"].forEach(k => localStorage.removeItem(k));
     window.location.href = "truck.html";
@@ -62,7 +57,7 @@ const Auth = {
 // ─────────────────────────────────────────────
 const Orders = {
 
-  // Yangi buyurtma yuborish
+  // Yuk berish — yangi buyurtma
   async create(orderData) {
     return apiFetch("/order", {
       method: "POST",
@@ -70,12 +65,17 @@ const Orders = {
     });
   },
 
-  // Barcha buyurtmalar (haydovchi uchun)
+  // Yuk olish — buyurtmalar ro'yxati
   async getAll() {
     return apiFetch("/orders");
   },
 
-  // Holat yangilash
+  // Bitta buyurtma
+  async getById(id) {
+    return apiFetch("/orders/" + id);
+  },
+
+  // Holat yangilash (haydovchi)
   async updateStatus(id, status) {
     return apiFetch("/orders/" + id, {
       method: "PATCH",
@@ -88,9 +88,8 @@ const Orders = {
 //  UI YORDAMCHILARI
 // ─────────────────────────────────────────────
 
-// Chiroyli xabar (yashil/qizil)
+// Chiroyli xabar
 function showMessage(msg, type) {
-  // Eski xabarni o'chirish
   const old = document.getElementById("_api_msg");
   if (old) old.remove();
 
@@ -98,23 +97,45 @@ function showMessage(msg, type) {
   div.id = "_api_msg";
   div.textContent = msg;
   div.style.cssText = [
-    "position:fixed", "top:20px", "right:20px", "z-index:99999",
-    "padding:14px 22px", "border-radius:10px", "font-size:15px",
-    "font-weight:600", "color:#fff", "box-shadow:0 4px 20px rgba(0,0,0,.3)",
-    "background:" + (type === "error" ? "#ef4444" : "#22c55e"),
-    "transition:opacity .4s"
+    "position:fixed","top:20px","right:20px","z-index:99999",
+    "padding:14px 24px","border-radius:10px","font-size:15px",
+    "font-weight:600","color:#fff","box-shadow:0 4px 20px rgba(0,0,0,.3)",
+    "background:" + (type === "error" ? "#ef4444" : "#22c55e")
   ].join(";");
   document.body.appendChild(div);
-  setTimeout(() => { div.style.opacity = "0"; setTimeout(() => div.remove(), 400); }, 3000);
+  setTimeout(() => div.remove(), 3500);
 }
 
-// Navigatsiya: kirgan/chiqganga qarab ko'rsatish
-function updateNav() {
-  const loggedIn   = isLoggedIn();
-  const role       = getRole();
-  const username   = getUsername();
+// Holat o'zbek tilida
+function statusText(status) {
+  const map = {
+    pending:    "⏳ Kutilmoqda",
+    accepted:   "✅ Qabul qilindi",
+    in_transit: "🚛 Yo'lda",
+    delivered:  "📦 Yetkazildi",
+    cancelled:  "❌ Bekor qilindi"
+  };
+  return map[status] || status;
+}
 
-  // Auth havolasi
+// Holat rangi
+function statusColor(status) {
+  const map = {
+    pending:    "#f59e0b",
+    accepted:   "#3b82f6",
+    in_transit: "#8b5cf6",
+    delivered:  "#22c55e",
+    cancelled:  "#ef4444"
+  };
+  return map[status] || "#888";
+}
+
+// Navigatsiya: rol asosida
+function updateNav() {
+  const loggedIn = isLoggedIn();
+  const role     = getRole();
+  const username = getUsername();
+
   const authLink = document.querySelector(".auth-link");
   if (authLink) {
     if (loggedIn) {
@@ -123,12 +144,11 @@ function updateNav() {
       authLink.onclick = (e) => { e.preventDefault(); Auth.logout(); };
     } else {
       authLink.textContent = "Kirish";
-      authLink.href        = "index.html";
-      authLink.onclick     = null;
+      authLink.href = "index.html";
+      authLink.onclick = null;
     }
   }
 
-  // Rol asosida nav linklari
   const navYukolish  = document.getElementById("nav-yukolish");
   const navYukberish = document.getElementById("nav-yukberish");
 
